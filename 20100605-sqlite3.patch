@@ -1,0 +1,16 @@
+https://bugzilla.gnome.org/show_bug.cgi?id=621715
+
+--- origsrc/git-bz/git-bz	2010-06-15 20:30:18.000000000 -0500
++++ src/git-bz/git-bz	2010-06-15 20:36:15.474830100 -0500
+@@ -67,7 +67,10 @@ from ConfigParser import RawConfigParser
+ import httplib
+ from optparse import OptionParser
+ import os
+-from pysqlite2 import dbapi2 as sqlite
++try:
++    from sqlite3 import dbapi2 as sqlite
++except ImportError:
++    from pysqlite2 import dbapi2 as sqlite
+ import re
+ from StringIO import StringIO
+ from subprocess import Popen, CalledProcessError, PIPE
