@@ -4,8 +4,6 @@ inherit git
 DESCRIPTION="Bugzilla subcommand for Git"
 HOMEPAGE="http://blog.fishsoup.net/2008/11/16/git-bz-bugzilla-subcommand-for-git/"
 
-PATCH_URI="20100605-sqlite3.patch"
-
 src_compile() {
 	lndirs
 	cd ${B}
