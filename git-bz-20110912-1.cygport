@@ -4,6 +4,8 @@ inherit git
 DESCRIPTION="Bugzilla subcommand for Git"
 HOMEPAGE="http://blog.fishsoup.net/2008/11/16/git-bz-bugzilla-subcommand-for-git/"
 
+DEPEND="asciidoc"
+
 src_compile() {
 	lndirs
 	cd ${B}
