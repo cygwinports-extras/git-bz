@@ -1,9 +1,9 @@
 GIT_URI="git://git.fishsoup.net/git-bz"
-GIT_REV=28228ab
+GIT_REV=1b6e7f1
 inherit git
 
 NAME="git-bz"
-VERSION=20130801
+VERSION=20150312
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Bugzilla integration for Git"
@@ -12,25 +12,28 @@ Bugzilla bug-tracking system. Operations such as attaching patches to bugs,
 applying patches in bugs to your current tree, and closing bugs once you've
 pushed the fixes publically can be done completely from the command line
 without having to go to your web browser."
-REQUIRES="git"
 HOMEPAGE="http://blog.fishsoup.net/2008/11/16/git-bz-bugzilla-subcommand-for-git/"
 
 DEPEND="asciidoc"
+REQUIRES="git"
+
+ARCH=noarch
 
 src_compile() {
 	lndirs
 	cd ${B}
-	cygmake ${PN}.html ${PN}.1
+	./configure \
+		--prefix=/usr \
+		--bindir=/usr/libexec/git-core \
+		--mandir=/usr/share/man
+	cygmake
 }
 
 src_install() {
 	cd ${B}
-	exeinto /usr/libexec/git-core
-	doexe git-bz
+	cyginstall
 
 	# for git help -w
 	docinto /git/html
 	dodoc *.html
-
-	doman *.1
 }
