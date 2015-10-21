@@ -1,9 +1,9 @@
 GIT_URI="git://git.fishsoup.net/git-bz"
-GIT_REV=1b6e7f1
+GIT_REV=e17bbae
 inherit git
 
 NAME="git-bz"
-VERSION=20150312
+VERSION=20150908
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Bugzilla integration for Git"
